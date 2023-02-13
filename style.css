@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+img, picture, svg, video{
+    display: block;
+    max-width: 100%;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: hsl(216, 12%, 8%);
+}
+
+.container{
+    width: 26rem;
+    height: 26rem;
+    perspective: 800px;
+}
+
+.flip > .card{
+    transform: rotateY(180deg);
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(farthest-side at top center, hsl(215deg, 17%, 15%), hsl(215deg, 27%, 12%));
+    color: hsl(217, 12%, 63%);
+    border-radius: 15px;
+    font-size: 15px;
+    font-family: 'Overpass', sans-serif;
+
+    position: relative;
+    transition: transform 1000ms;
+    transform-style: preserve-3d;
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    
+}
+
+
+.front img{
+    background-color: #262F38;
+    padding: 1.1rem;
+    margin: 2rem;
+    margin-right: auto;
+    border-radius: 50%;
+}
+
+.front section{
+    margin-left: 2rem;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+    
+}
+
+.front section h1{
+    color: white;
+}
+
+
+.front .inputs{
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.front .inputs div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front .inputs div > label > span{
+    
+    position: absolute;
+    
+    
+}
+
+.front label{
+    
+    position: relative;
+    padding: 1.6rem 1.6rem;
+    border-radius: 50%;
+
+    background-color: #262F38;
+    font-weight: 700;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.front label:hover{
+
+    background-color: hsl(216, 12%, 54%);
+    color: white;
+    transition: 0.3s;
+}
+
+
+.front input{
+    position: absolute;
+}
+
+.front input:checked + label{
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+}
+
+
+.front button{
+    display: block;
+    border: 0;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    padding: 1rem 0;
+
+    border-radius: 25px;
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.15rem;
+    cursor: pointer;
+}
+
+.front button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.front button:enabled{
+    background-color: hsl(25, 97%, 53%);
+    transition: 0.3s;
+}
+
+.front button:enabled:hover {
+    background-color: white;
+    color: hsl(25, 97%, 53%);
+}
+
+.back{
+    transform: rotateY(180deg);
+    text-align: center;
+    
+}
+
+.back img{
+    
+    margin: 2rem auto;
+    
+}
+
+.back h1{
+    color: white;
+}
+
+.selected-p{
+    width: 50%;
+    padding: 0.3rem 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    background-color: #262F38;
+    color: hsl(25, 97%, 53%);
+}
+
+
+@media screen and (max-width: 600px){
+    .container{
+        max-width: 90%;
+    }
+
+    .front img{
+        margin-left: 1.5rem;
+    }
+
+    .front label{
+        padding: 1.35rem 1.35rem;
+    }
+
+    .front section{
+        margin-bottom: 1.5rem;
+        margin-left: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    .front section p br{
+        display: none;
+    }
+
+    .front .inputs{
+        gap: 1.1rem;
+    }
+
+    .back p br{
+        display: none;
+    }
+
+    
+    
+}
